@@ -1,0 +1,2 @@
+Projeyi çalýþtýrmadan önce database HARÝTA diye kurup türkiye haritasý diye eklediðim sql i execute edersek projede kapý ve mahallenin koordinatlarýný veritabanýmýza
+ekleyecektir.Þimdilik kapý koordinatýna týkladýðýmýz zaman veritabanýnda mahallesi varsa onun mahalle kodunu yoksa mahalle kodunu sýfýr getirmektedir.

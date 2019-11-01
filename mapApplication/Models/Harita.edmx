@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HARİTAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Kapi">
+          <Key>
+            <PropertyRef Name="kapi_id" />
+          </Key>
+          <Property Name="kapi_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MAH_KODU" Type="int" />
+          <Property Name="KAPI_NO" Type="int" />
+          <Property Name="KOORDINAT" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Mahalle">
+          <Key>
+            <PropertyRef Name="MAH_KODU" />
+          </Key>
+          <Property Name="MAH_KODU" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MAH_ADI" Type="nvarchar" MaxLength="100" />
+          <Property Name="KOORDINAT" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="HARİTAModelStoreContainer">
+          <EntitySet Name="Kapi" EntityType="Self.Kapi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mahalle" EntityType="Self.Mahalle" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HARİTAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Kapi">
+          <Key>
+            <PropertyRef Name="kapi_id" />
+          </Key>
+          <Property Name="kapi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MAH_KODU" Type="Int32" />
+          <Property Name="KAPI_NO" Type="Int32" />
+          <Property Name="KOORDINAT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Mahalle">
+          <Key>
+            <PropertyRef Name="MAH_KODU" />
+          </Key>
+          <Property Name="MAH_KODU" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MAH_ADI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="KOORDINAT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="HARİTAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Kapi" EntityType="Self.Kapi" />
+          <EntitySet Name="Mahalle" EntityType="Self.Mahalle" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HARİTAModelStoreContainer" CdmEntityContainer="HARİTAEntities">
+          <EntitySetMapping Name="Kapi">
+            <EntityTypeMapping TypeName="HARİTAModel.Kapi">
+              <MappingFragment StoreEntitySet="Kapi">
+                <ScalarProperty Name="kapi_id" ColumnName="kapi_id" />
+                <ScalarProperty Name="MAH_KODU" ColumnName="MAH_KODU" />
+                <ScalarProperty Name="KAPI_NO" ColumnName="KAPI_NO" />
+                <ScalarProperty Name="KOORDINAT" ColumnName="KOORDINAT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mahalle">
+            <EntityTypeMapping TypeName="HARİTAModel.Mahalle">
+              <MappingFragment StoreEntitySet="Mahalle">
+                <ScalarProperty Name="MAH_KODU" ColumnName="MAH_KODU" />
+                <ScalarProperty Name="MAH_ADI" ColumnName="MAH_ADI" />
+                <ScalarProperty Name="KOORDINAT" ColumnName="KOORDINAT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
